@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Background Image for the Entire Page */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('https://wallpaperaccess.com/full/250472.jpg') no-repeat center center fixed; /* Add fixed background for scrolling effect */
+    background-size: cover; /* Ensures the background image covers the entire body */
+    color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for navigation */
+nav ul li a:hover {
+    color: #a18dff; /* Light purple accent */
+}
+
+/* Hero Section with Background Image */
+.hero {
+    background-size: cover; /* Ensures the background image covers the entire section */
+    color: #f4f4f4;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+/* Hero content (Text) */
+.hero-content h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 0.5s;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 1s;
+}
+/* About Section */
+#about {
+    padding: 50px 20px;
+    text-align: center;
+    background: #232323; /* Dark background */
+    animation: fadeIn 2s ease-in-out;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #a18dff; /* Light purple accent */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap:flex;
+}
+
+.about-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.about-content img:hover {
+    transform: scale(1.1);
+}
+
+.bio {
+    max-width: 500px;
+}
+
+.bio p {
+    font-size: 1.1rem;
+    color: #f4f4f4;
+}
+
+/* Projects Section */
+#projects {
+    padding: 50px 20px;
+    background: #121212; /* Dark background */
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #a18dff; /* Light purple accent */
+}
+
+.project-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #2b2b2b; /* Dark card background */
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f4f4f4; /* Light text */
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #bbb; /* Lighter text */
+}
+
+.project-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #a18dff; /* Light purple accent */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.project-card .btn:hover {
+    background-color: #8a64c1; /* Slightly darker purple */
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px 20px;
+    background: #232323; /* Dark background */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #a18dff; /* Light purple accent */
+}
+
+form {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+form input,
+form textarea {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #666;
+    font-size: 1rem;
+    background-color: #222;
+    color: #f4f4f4;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #a18dff; /* Light purple accent */
+}
+
+form button {
+    padding: 12px;
+    background-color: #a18dff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #8a64c1; /* Slightly darker purple */
+}
+
+.social-media {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media a {
+    font-size: 1.5rem;
+    color: #f4f4f4;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #a18dff; /* Light purple accent */
+}
+
+footer {
+    background-color: #121212;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+/* Global Fade-in for Sections */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #f4f4f4; /* Light text color */
+    line-height: 1.6;
+}
+
+/* Hero Section Animation */
+.hero-content h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 0.5s;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 1s;
+}
+
+/* About Section Animation */
+#about {
+    padding: 50px 20px;
+    text-align: center;
+    background: #232323;
+    animation: fadeInUp 2s ease-in-out forwards;
+}
+
+.about-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease-in-out forwards 1s;
+}
+
+.about-content img:hover {
+    transform: scale(1.1);
+}
+
+/* Project Cards Animation */
+.project-card {
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease-in-out forwards 1.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Contact Section Animation */
+#contact {
+    padding: 50px 20px;
+    background: #232323;
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out forwards 1.5s;
+}
+
+form {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease-in-out forwards 1.5s;
+}
+
+form input,
+form textarea {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #666;
+    font-size: 1rem;
+    background-color: #222;
+    color: #f4f4f4;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #a18dff;
+}
+
+form button {
+    padding: 12px;
+    background-color: #a18dff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #8a64c1;
+}
+
+.social-media {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media a {
+    font-size: 1.5rem;
+    color: #f4f4f4;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease-in-out forwards 2s;
+}
+
+.social-media a:hover {
+    color: #a18dff;
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background-color: #121212;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+
+</style>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm Tanuj</h1>
+            <p>I'm a Web Developer focused on creating beautiful, responsive websites.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="https://static.vecteezy.com/system/resources/previews/013/215/160/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-vector.jpg" alt="Profile Picture">
+            <div class="bio">
+                <p>Hello, I am a passionate web developer with expertise in building interactive websites. I love working on creative challenges and learning new technologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <img src="data:image/png;base64,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" alt="Project 1">
+                <h3>Project One</h3>
+                <p>A web application built with React and Node.js.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRpob851w7_JvqtyUNtkO50hiQbBq0Q-XNYA&s" alt="Project 2">
+                <h3>Project Two</h3>
+                <p>An interactive portfolio site built using HTML, CSS, and JavaScript.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAABWVBMVEV9+eIbAE7///95Xf8l9c53+eF9/+F5Vv97pPR9+uJ9/OF5Rf+8/O9y+eDWwf8ZAEuB/+kQAD5oTt4sO2V5Tf/0/vx48dt98eR80usTAEJ+Yf/W+/MAAEBZQcLc+fN2Wv98zuya6esNADl7svHaxv8AADuZeP/u//+99ekAAEVv7dUl/tQEADiKhZxKSW5WpqV42OGqp7cglpMgi4x/epLg3+Qgoplpz8Py8fQpy7RGgI196uVzV/OTnq64yc93uek4I4FPOa1ELpgAACl5av0wHHJ7xO57pvPIxdAlEF9VPbgAACyW+udkS9dJM6F6evt85OdmaoZF9tOdhf9x4dB4k/PHp/16ivisk/t6gfrKsf04LF/NytSmorMtHlhbkbUkEVNHPWkecHw2KV5hWXx6kvd4Mf8AAAeLlaYcJljC1dgpzraiycoaSWY1SGponKM/boJLipRVo6RpMy0DAAAJ8klEQVR4nO2d+3uTyBqAITSk0HYxsaWBQtITi2lqenObk65J700vtunVbnVtXV1113XPetT//4fDAIEBhoCas3XS730kkszXJLzP3GBmAsMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwG1GsElH4CTf9Lf8vhB43t5p/CsKO53nwZyLwAxmRhFD5z9E8POQFTB62eBv+tt+LwjjXIazKN6fIlubelq0IzKjC+JNf9/vBP6ZY820EqXtvqONK2ZEfzmNqAzjAqgv7EJjtGONKz6dIvKLK5Yb3cGzW5oZJnI40gk4jAmgFXHS08Zltu+TyGARu1jtlh5ORVBOJwugFnESk2JmOBJYemYQbxSipKRSE5aWw+iAabq9BbTFgWuLzkup1NhITECZ7mJ6U9rGQFsqVTtFj3uLoC25tuXF50YVGXulGUtXBG3LS7Mee6ANHf/VqVGRWFZbun5eYdmK8eJ6Oajtqlpx0U7p1ibcsfhWbYsHpjNEpWLvSNqLoLZFjXWRXlGt7U593uZXPYZmV217BhtAmgtqm63gyVRru5tVElJtdy2kL6WANm0vqO0U12ZQrO3OIyWYRzyCKdmu2q6rGm5F06RQk/AKf0ujRrG2uwE50m8PXYKlLpvr2pJeXy153rSrxVpIG67Vzoz9o+1Hl2B2i9GWSmHanLzk07Zcxd+tsthH2roU0m/WVvO1GpXZftLWhW/Vtqfh7ya9AW2JtF07yU6/7jVoS6TN6bZJTpjWB9qUbFaJM/it2t5YH1BZqtmF1VimXpvyWM1trCvBTlxvtb2wPsvseDi5rUa9NlZpHbWb6uOu3r5VW9X6LKMTZ+zRr42VzLOnzWb2/6ntmjVPJNCVj6tqRTO0OfoLqW1uX90qhVF6pc3s8O7NnqKE2aVFJ70PtLEljlNVFT1YO6r9sKEk1XZ9YDhU7fq+X6/u+rVlcxv7+yx6WOfY/f19tWU9SEm1pZZdfFb6XJui61Wlqj+uZlvcgZJd57aU0lGzFFdIhS7jeQVLW1wAbfi1SZvNjY2NXG5jQ+fMnTZ61jyKrduYkXKklcNkAZQR0Lav6rqe43S9bW46lzOfqF6fJFIbk54YI1I4TCcMoIvAyVVJbWVLZtksoUK6ZT45aOtJtDHpETLJA6gioC2bOzoosepBtcVtVVF3RFH3pSTa+IYojjMC3+Ct3YYYnEpkpgjiuJliBQjMONVzjQLaFJ1rNpuquXHOliuxCbTxu2q+cXzJ7HBr/MX2wsnx28DniGvcjvD2+GRhe5C/x02OXx43aPYW0Ga2Ca31FnfUOuJarZzeanGbUiJt9zIMf3zJLxR3+EGO59WLwGxLMV/Mm0J5kdvld4on/OUx1dMxg9r21WppK7d5YBbSLa51sM5hma1bIRXNIsjzomD+J/LWPwSeobwUwY61+IcPt1cEr7eVuLauN5tWS6q29abv3D5am3CSJ3HiehMaxABap7IGtWVz7Q2cfSmRNn6ISNGN4Y+JAb8zdNZwQW2K3m6tu0hKoJ2NzG0LkyTw3EYM6JfcJq03zbP3HGpGVbW5GcyKkdqYxrhHgxGDdZsg+AJkp2qj1Fp4LEE5am42N6tm5+2o3S6xCbUFCikXaiYDhfR3mc7C2SGsTdf/0HVFWuf+aHGJtYk793AmQ7lIzPsC1mjNZg7hUfl1NYcuFSlc+BJ51w4IDkFKbABVhAf8lNZGS0FjmUfrwSvkXbTdMgjjpJ3mMzz+B9o69GR4mYnofWErKGMD6KIX2rodu5AogDp6oM0+8C5L1YQu6VRepMS0YfOz0DzukDI0bYuozZIycjhBZNpMjg2gkI426bd/u6ysrLzreJM0w0BzS6U/f5Qi6zZ5ZiJyqMDS0jWARnHuHJAHHodj5bFT+2Xj9H2h8P6dIbEDP5G1WVa6DExZS9ViA2jDzW0P//qpw39WV1ftvGaslsuFQqH83rSmRDYJ8sx0tBU0DBobQB1e3eZNpNdMrNe0FSQNeTtD1iK0yV+krSCgx+FhXwB1eDOO7Kags7LHelUqF8q2Nd6aGh+f22rOzI7l2rJnBfM6fDYwgPbN/5iCG0Bf5ebWbX89eDBR9kCaKkvl4ZEysnZWXqkk0iZt2SvUXmzthbVNiAMWh0ieydkw/doGfNrG5pC2d+XCgFBG1sqrWqJCOlexFqDVDKMW0jY9EGKEdm3sy78/zHm8Rq+aua08MXA4cmaW1S65Ddf2RtJml1NXrHRbtNlNQkWzsbpt0kvT18TAGSqnp9F1G67ttMJWzI6exBqEui2sbZp2bWZ3Fy0X+u+Kjd3d1VZNb8NWD8SIPrnyaeucqpG0HYa00V+3OV3dMadus49fe2+1peWCvXovXpu7Fk0LF1KzHe00ChYTw2XqtUkPrZ5ufdWhk2neFcwO74qzsDZem7vMpbJI0JZK4dr6oQPS6e46dZt3+OZ5ldE5QY3V5q0O6qxN7ndtSYjV9tp7M2MPtCXUVsMWPjrr90BbvLZlbOFj5Rq0JdSWwrRpi32t7cMXaKs2Y7RhsVpf121CvZrUm6S01Bhtz7330q76WRtzZ/7PpN42OS5G2xzWktb6Whsj3nHIZ9QYYrUtuT/Go1VT/a2tw1f/WA9+lrDY4Zp0cmWeXgVOSG+xttihAtzrmHtJDwsAbXHaiAG3Upssx43nyTP9NuDn8ZXaBKtyix49lhkroNA1gGK+XhvSMlwgMm1LiQ2glyhtvp+NJRVSq5jOkEknCaC5aovQViyen6skcb6pM7LMT4ozC+OyOMnLM3lRzMsWjOwGiPOCLNcZps7IwrwoP6kzbgDVELUV7/8wNTV1TkjxT9TiL4fyDW5bXhva5Z+NLpxkjl0f9pQj4dPBZ+au9KRe+iA+OpiXX7BPbuQoew5Zm/0L7Nvh/ObXJu5cyPzgLn9ykefXLkT+4l5wUnP9UV349FGQP34W5j8+ET49Ery/phmSNucOAO7v/Udqk9HSM3Pjra2zy3vrOWRBFARRZNCG1nmI1lNql3N4ELWdJ9Qm3hsksWZ5s7b5RyQ+hZbr0ga5SZjy3yYhQpvMZ4gr0bbdLrHwd5XITR1tzyDXbefoNgk/xzUJZkOJ9TBkF7cMojaTxA0daw+J6IBsP316n5Tg15bOr+HkxY4Rp5DKTP3zPI639O+fP9KeEtHdDdwmIaqQ+gtnhmf8OUkW7vrK5pbM9ENWY/w3NUlAxr2pCcov6cYCTiP89nIdx+200Z7Z0NrFLzkpzbhHbHVA0ulOdWXdQ8xLISIwMQEUIYxnEnsrDuUju1xW4esmJDaALsTxt6MJeXaCrbgiGIiV0j/W0M3oxPFEMIEFoQEJYSfBV/rJGkJIBuEPk39ED78uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtfwPuSoDFHUigmkAAAAASUVORK5CYII=" alt="Project 3">
+                <h3>Project Three</h3>
+                <p>A mobile-friendly e-commerce website built with Vue.js.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+   <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+    <div class="social-media">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+</section>
+
+    <footer>
+        <p>&copy; 2025 Tanuj Naidu. All rights reserved.</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
